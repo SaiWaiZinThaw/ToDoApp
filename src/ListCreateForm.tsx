@@ -11,7 +11,7 @@ const ListCreateForm: React.FC<ListCreateFormProps> = (props) => {
     setJob(event.target.value);
   };
 
-  const keyUpHandler = () => {
+  const keyUpHandler = (event) => {
     if (event.key === "Enter") {
       if (job) {
         props.addJob(job);
