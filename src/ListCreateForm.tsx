@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent,KeyboardEvent } from "react";
 
 interface ListCreateFormProps {
   addJob: (job: string) => void;
@@ -11,7 +11,7 @@ const ListCreateForm: React.FC<ListCreateFormProps> = (props) => {
     setJob(event.target.value);
   };
 
-  const keyUpHandler = (event) => {
+  const keyUpHandler = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       if (job) {
         props.addJob(job);
