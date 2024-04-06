@@ -11,6 +11,15 @@ const ListCreateForm: React.FC<ListCreateFormProps> = (props) => {
     setJob(event.target.value);
   };
 
+  const keyUpHandler = () => {
+    if (event.key === "Enter") {
+      if (job) {
+        props.addJob(job);
+        setJob("");
+      }
+    }
+  }
+
   const btnHandler = () => {
     if (job) {
       props.addJob(job);
@@ -21,6 +30,7 @@ const ListCreateForm: React.FC<ListCreateFormProps> = (props) => {
   return (
     <div className="w-full flex items-center rounded-lg">
       <input
+        onKeyUp={keyUpHandler}
         type="text"
         id="input"
         value={job}
